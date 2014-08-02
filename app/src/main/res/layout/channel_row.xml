@@ -17,7 +17,7 @@
 
         <ImageButton
             android:id="@+id/channel_color"
-            android:layout_width="40dp"
+            android:layout_width="15dp"
             android:layout_height="fill_parent"
             android:background="#FF0000FF"
             android:src="@drawable/channel_color"

@@ -1,7 +1,9 @@
 package de.fablab.ara.arapirate;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -16,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -105,6 +108,24 @@ public class Watch extends Activity {
 
             ImageButton colorSelector = (ImageButton) rowView.findViewById(R.id.channel_color);
             ImageButton contextMenu = (ImageButton) rowView.findViewById(R.id.context_menu);
+
+            contextMenu.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    final String[] items = getResources().getStringArray(R.array.channel_row_context_actions);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle(R.string.action_select_trigger);
+                    builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
+
+                            // TODO
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            });
 
             return rowView;
         }

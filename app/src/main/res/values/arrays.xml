@@ -27,4 +27,12 @@
         <item>50 KHz</item>
         <item>25 KHz</item>
     </string-array>
+
+    <string-array name="channel_row_context_actions">
+        <item>None</item>
+        <item>On rising edge</item>
+        <item>On logic 1</item>
+        <item>On falling edge</item>
+        <item>On logic 0</item>
+    </string-array>
 </resources>
