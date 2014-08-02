@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="samples">
+        <item>1M Samples</item>
+        <item>2M Samples</item>
+        <item>5M Samples</item>
+        <item>10M Samples</item>
+        <item>25M Samples</item>
+        <item>50M Samples</item>
+        <item>100M Samples</item>
+        <item>150M Samples</item>
+        <item>200M Samples</item>
+    </string-array>
+
+    <string-array name="sample_rates">
+        <item>24 MHz</item>
+        <item>16 MHz</item>
+        <item>12 MHz</item>
+        <item>8 MHz</item>
+        <item>4 MHz</item>
+        <item>2 MHz</item>
+        <item>1 MHz</item>
+        <item>500 KHz</item>
+        <item>250 KHz</item>
+        <item>200 KHz</item>
+        <item>100 KHz</item>
+        <item>50 KHz</item>
+        <item>25 KHz</item>
+    </string-array>
+</resources>

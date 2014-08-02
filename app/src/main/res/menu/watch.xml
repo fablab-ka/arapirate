@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Watch" >
+
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_action_simulate"
+        android:title="@string/action_simulate"
+        android:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_change_sample_count"
+        android:title="@string/action_change_sample_count"
+        android:showAsAction="ifRoom"
+        android:actionLayout="@layout/action_change_sample_count"  />
+
+    <item
+        android:id="@+id/menu_change_sample_rate"
+        android:title="@string/action_change_sample_rate"
+        android:showAsAction="ifRoom"
+        android:actionLayout="@layout/action_change_sample_rate"  />
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+
+</menu>

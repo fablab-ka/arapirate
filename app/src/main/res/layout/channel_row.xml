@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:padding="0dip"
+    android:background="@drawable/channel_gradient_bg">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:padding="0dip"
+        android:background="@drawable/channel_header_bg">
+
+        <ImageButton
+            android:id="@+id/channel_color"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="#FF0000FF"
+            android:src="@drawable/channel_color"
+            android:tag="#FF0000FF"
+            android:layout_marginRight="5dp"/>
+
+        <ImageButton
+            android:id="@+id/context_menu"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/button_bar_selector"
+            android:src="@drawable/ic_channel_menu" />
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_width="1dip"
+            android:layout_height="fill_parent"
+            android:background="#333" />
+
+    </LinearLayout>
+
+    <de.fablab.ara.arapirate.LineView
+        android:id="@+id/channel_line"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@+id/header"/>
+
+</RelativeLayout>

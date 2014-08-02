@@ -2,6 +2,10 @@
 <resources>
 
     <string name="app_name">AraPirate</string>
-    <string name="title_channel_detail">Channel Detail</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_simulate">Simulate</string>
+    <string name="action_change_sample_count">Samples</string>
+    <string name="action_change_sample_rate">Sample rate</string>
 
 </resources>

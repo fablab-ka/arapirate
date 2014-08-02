@@ -1,4 +1,4 @@
-package de.ara.fablabka.arapirate;
+package de.fablab.ara.arapirate;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
