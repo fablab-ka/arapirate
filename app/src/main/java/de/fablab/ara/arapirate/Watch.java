@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,9 +75,11 @@ public class Watch extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class StableArrayAdapter extends ArrayAdapter<Channel> {
+    private class StableArrayAdapter extends ArrayAdapter<Channel> implements LineView.LineScrollOffsetChangeListener {
 
         private final Context context;
+
+        private ArrayList<LineView> lineViews = new ArrayList<LineView>();
 
         HashMap<Channel, Integer> mIdMap = new HashMap<Channel, Integer>();
 
@@ -106,8 +109,19 @@ public class Watch extends Activity {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View rowView = inflater.inflate(R.layout.channel_row, parent, false);
 
+            final Channel channel = getItem(position);
+
             ImageButton colorSelector = (ImageButton) rowView.findViewById(R.id.channel_color);
             ImageButton contextMenu = (ImageButton) rowView.findViewById(R.id.context_menu);
+            LineView lineView = (LineView) rowView.findViewById(R.id.channel_line);
+
+            colorSelector.setBackgroundColor(channel.getColor());
+
+            lineView.setData(channel);
+
+            lineViews.add(lineView);
+
+            lineView.setScrollOffsetChangeListener(this);
 
             contextMenu.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -115,11 +129,14 @@ public class Watch extends Activity {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle(R.string.action_select_trigger);
-                    builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+
+                    builder.setSingleChoiceItems(items, channel.getTrigger(), new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int item) {
                             Toast.makeText(getApplicationContext(), items[item], Toast.LENGTH_SHORT).show();
 
-                            // TODO
+                            dialog.dismiss();
+
+                            channel.setTrigger(item);
                         }
                     });
                     AlertDialog alert = builder.create();
@@ -128,6 +145,20 @@ public class Watch extends Activity {
             });
 
             return rowView;
+        }
+
+        @Override
+        public void onScrollOffsetChanged(double scrollOffset) {
+            for (LineView lineView : this.lineViews) {
+                lineView.setScrollOffset(scrollOffset);
+            }
+        }
+
+        @Override
+        public void onZoomChanged(double zoom) {
+            for (LineView lineView : this.lineViews) {
+                lineView.setZoom(zoom);
+            }
         }
     }
 }

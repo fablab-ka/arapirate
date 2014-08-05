@@ -6,19 +6,13 @@
     tools:context=".Watch"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/channelList"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="horizontal">
-
-        <ListView
-            android:id="@+id/channelList"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:divider="#b5b5b5"
-            android:dividerHeight="1dp"
-            android:listSelector="@drawable/channel_gradient_bg">
-        </ListView>
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/channel_gradient_bg">
+    </ListView>
 
 </LinearLayout>
